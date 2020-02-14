@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Lookup</title>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1>DoctorLookup:</h1>
+      <p>Use our DoctorLookup service tool to find doctors in Portland area.</p>
+    </div>
+    <div class="card format">
+      <form id="mdIssueForm">
+        <h3>Search for a doctor</h3>
+        <div class="form-group">
+          <label for="mdIssue">Enter a medical issue </label>
+          <input type="text" id="userMdIssue">
+          <button type="submit" class="btn btn-warning">Search!</button>
+        </div>
+      </form>
+      <div class="output card">
+        <h3>You are searching in Portland area for:</h3>
+      </div>
+      <div class="noResult card">
+        <h3>Your search returned no results.</h3>
+      </div>
+      <div class="errorOutput card">
+        <h3 id="errorOutput">Error:</h3>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
