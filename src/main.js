@@ -13,16 +13,23 @@ $(document).ready(function() {
     $("#userMdIssue").val(""); 
 
     (async () => {
-      let doctor = new Doctor();
-      const issueResponse = await doctor.getDoctorByIssue(issue);
+      let doctorSearch = new Doctor();
+      const issueResponse = await doctorSearch.getDoctorByIssue(issue);
       getElementsByIssue(issueResponse);
+      console.log(issueResponse);
+   
     })();
 
     const getElementsByIssue = function(issueResponse) {
+
       if (issueResponse === false) {
-        $(".errorOutput").append(`There was an error processing this search. Please try again. (Error message:`);
-      } 
-      
+        $(".errorOutput").append(`There was an error handling your request. Please try again.`);
+      } else if (issueResponse.meta.count > 0) {
+        issueResponse.data.forEach(function(data) {
+          $(".output").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "</ul>");
+        });
+      }
+    
     };
   });
 });
