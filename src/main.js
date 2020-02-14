@@ -9,8 +9,8 @@ $(document).ready(function() {
   $("form#mdIssueForm").submit(function(event) {
     event.preventDefault();
 
-    const issue = $("#userMdIssue").val();
-    $("#userMdIssue").val(""); 
+    const issue = $("#inputMdIssue").val();
+    $("#inputMdIssue").val(""); 
 
     (async () => {
       let doctorSearch = new Doctor();
@@ -27,10 +27,11 @@ $(document).ready(function() {
       } else if (issueResponse.meta.count > 0) {
         issueResponse.data.forEach(function(data) {
           $(".output").show();
-          $(".output").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: " + "<a href='" + data.practices[0].website + "'>" + data.practices[0].website + "</a>" +"</li>" + "</ul>" + "</li>");
+          $(".sentence").text(`A list of doctors who treats ${issue}.`);
+          $(".outputResult").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: " + "<a href='" + data.practices[0].website + "'>" + data.practices[0].website + "</a>" +"</li>" + "</ul>" + "<br>" + "</li>");
         });
       } else {
-        $(".noResult").append("<h5>Unfortunately, There are no doctors meet your search criteria in Portland area</h5>")
+        $(".noResult").append("<h5>Unfortunately, There are no doctors meet your search criteria in Portland area</h5>");
       }
     
     };

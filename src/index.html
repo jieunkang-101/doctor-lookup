@@ -9,16 +9,26 @@
       <h1>DoctorLookup:</h1>
       <p>Use our DoctorLookup service tool to find doctors in Portland area.</p>
     </div>
+    <h3>Search for a doctor</h3>
     <form id="mdIssueForm">
-      <h3>Search for a doctor</h3>
       <div class="form-group">
-        <label for="mdIssue">Enter a medical issue </label>
-        <input type="text" id="userMdIssue">
+        <label for="mdIssue">Enter a medical issue</label>
+        <input type="text" id="inputMdIssue">
+        <button type="submit" class="btn btn-warning">Search!</button>
+      </div>
+    </form>
+    <br>
+    <form id="nameForm">
+      <div class="form-group">
+        <label for="name">Enter a doctor's name</label>
+        <input type="text" id="inputDocName">
         <button type="submit" class="btn btn-warning">Search!</button>
       </div>
     </form>
     <div class="output">
-      <h3>You are searching in Portland area for:</h3>
+      <h4>Results:</h4>
+      <p class="sentence"></p>
+      <ul class="outputResult"></ul>
     </div>
     <div class="noResult">
     </div>
