@@ -21,11 +21,12 @@ A application where users can search for doctors in Portland area who can treat 
 ## Behavior Driven Development Specifications
 
 | Behavior(Spec)<img width=800/>  | Input<img width=300/>  | Output<img width=600/>  |
-| :---------------- | :-----: | :-----: |
-| The Program will return list of qualified doctors based on submitted medical issue. | "sore throat" | "Dr. James" |
-| The program will return list of doctors based on submitted name. | "James" | "Dr. James |
-| The program will return first name, last name, address, phone number, website and whether or not the doctor is accepting new patients for any response with a doctor | "James" | "Dr. James,  currently accepting new patients." |
-| The program will return a notification that states no doctor meet the criteria. | "" | "Sorry, " |
+| :---------------- | :-----: | :----- |
+| The Program will return list of qualified doctors based on submitted medical issue. | "sore throat" | "MD. Nathan Sautter" |
+| The program will return list of doctors based on submitted name. | "Nathan" | "MD. Nathan Sautter" |
+| The program will return a notification that states no doctor meet the criteria. | "aaaaaaaa" | "Unfortunately, there are no doctors meet your search criteria in Portland area" |
+| The program will return first name, last name, address, phone number, website and whether or not the doctor is accepting new patients for any response with a doctor |  | MD. Nathan Sautter <br/>Phone Number:  <br/>Address: <br/>Accept New Patients: <br/>Website: |
+| The program will return error message when the API call doesn't return a 200 OK status |  | "There was an error handling your request" |
 
 ## Technologies Used
 
