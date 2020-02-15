@@ -2,6 +2,10 @@
   background-color: #7FDBFF;
 } */
 
-.output {
+.output, .noResultOutput {
   display: none;
+}
+
+.errorOutput {
+  color: red;
 }
