@@ -9,14 +9,35 @@ A application where users can search for doctors in Portland area who can treat 
 
 ## Setup/Installation Requirements
 
-1. Open Terminal and go to the Desktop directory `("$cd desktop")`.
-2. Clone this repository to your local machine `("$git clone https://github.com/jieunkang-101/doctor-lookup")`.
-3. Change into the root directory of this project `("$cd doctor-lookup")`.
-4. Type  `("$npm install")` to add the correct Node modules and download necessary dependencies to the project.
-5. Type `("$npm run build")` to build compile the application.
-6. Open cloned directory in Visual Studio Code or preferred text editor `("code .")`.
-7. This project requires an API key from BetterDoctor API `(https://developer.betterdoctor.com/)`. Make a `.env` file in the project root `("$touch .env")`.  Obtain your own API key in .env file.
-8. Type `("$npm start")` to view the project.
+1. Clone this repository on your local machine from `https://github.com/jieunkang-101/doctor-lookup`
+
+2. Install `Node.js` with following instructions. If you already have Node.js installed, then skip to next step.
+
+    **Node: Windows / Linux Installation Instructions**
+    * To install Node on other systems, go to the [Node website](https://nodejs.org/en/), download and install the appropriate installer for your operating system.
+
+    **Node: OSX Installation Instructions**
+    * On OS X systems, install Node.js through Homebrew with the following command in your home directory:
+      * `$ brew install node`
+    * Confirm that node and npm (node package manager, installed automatically with Node) are in place by checking the versions (Node should be 4.0.x or higher, npm should be 3.6.x or higher):  
+      * `$ node -v`
+      * `npm -v`
+
+3. Install dependencies 
+   *  Enter the following code in the command line to install all necessary dependencies to the project.
+      * `$ npm install`
+
+4. Linking API key
+    * This application requires an API key to run properly.
+      * Get a personal API key from https://developer.betterdoctor.com/   
+      * Create a .env files in the root directory or the project. Obtain your own API key in .env file.</br>
+      `API_KEY = YOUR UNIQUE API KEY GOES HERE`
+
+5. Working with the project in Node
+    * To build and buldle the project in webpack run:
+      * `$ npm run build`
+    * To spin up a development server at http://localhost:8080/.
+      * `$ npm run start`
 
 ## Behavior Driven Development Specifications
 
@@ -25,18 +46,16 @@ A application where users can search for doctors in Portland area who can treat 
 | The Program will return list of qualified doctors based on submitted medical issue. | "sore throat" | "MD. Nathan Sautter" |
 | The program will return list of doctors based on submitted name. | "Nathan" | "MD. Nathan Sautter" |
 | The program will return a notification that states no doctor meet the criteria. | "aaaaaaaa" | "Unfortunately, there are no doctors meet your search criteria in Portland area" |
-| The program will return first name, last name, address, phone number, website and whether or not the doctor is accepting new patients for any response with a doctor |  | MD. Nathan Sautter <br/>Phone Number:  <br/>Address: <br/>Accept New Patients: <br/>Website: |
+| The program will return first name, last name, address, phone number, website and whether or not the doctor is accepting new patients for any response with a doctor |  | <ul>MD. Nathan Sautter <li>Phone Number: </li><li>Address: </li><li>Accept New Patients:</li><li>Website:</li></ul>|
 | The program will return error message when the API call doesn't return a 200 OK status |  | "There was an error handling your request" |
 
 ## Technologies Used
-
-* HTML
-* Javascript
-* JQuery
-* Bootstrap 4.4
-* Node.js
-* webpack
-
+| Development dependencies | Front end dependencies |
+| :------ | :------ |
+| webpack | Boostrap |
+| eslint-loader | jquery |
+| babel-loader | popper |
+| css-loader & style-loader | |
 
 ### License
 
