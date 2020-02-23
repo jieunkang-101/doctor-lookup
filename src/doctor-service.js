@@ -8,6 +8,7 @@ export class Doctor {
       } else {
         jsonfiedResponse = response.statusText;
       }
+      console.log(jsonfiedResponse);
       return jsonfiedResponse;
     } catch(error) {
       return false;

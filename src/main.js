@@ -1,4 +1,5 @@
 import { Doctor } from './doctor-service';
+import { doctorsInfo } from './doctor-info.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,12 +26,8 @@ $(document).ready(function() {
       } else if (issueResponse.meta.count > 0) {
           issueResponse.data.forEach(function(data) {
           $(".output").show();
-          $(".sentence").text(`A list of doctors who treats ${issue}.`);
-          if (data.practices[0].website == null) {
-            $(".outputResult").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: there is no website" + "</li>" + "</ul>" + "<br>" + "</li>");
-          } else {
-            $(".outputResult").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: " + "<a href='" + data.practices[0].website + "'>" + data.practices[0].website + "</a>" +"</li>" + "</ul>" + "<br>" + "</li>");
-          }
+          $(".sentence").text(`A list of doctors who treats "${issue}".`);
+          $(".outputResult").append(doctorsInfo(data));
         });
         $(".refresh").append(`<a href='index.html'>Click here to try again</a>`);
       } else {
@@ -55,16 +52,12 @@ $(document).ready(function() {
     const getElementsByName = function(nameResponse) {
 
       if (typeof(nameResponse) == "string") {
-        $(".errorOutput").append(`There was an error handling your request: ${nameResponse} <br><a href='index.html'>Click here to try again</a>`);
+        $(".errorOutput").append(`There was an error handling your request: "${nameResponse}"<br><a href='index.html'>Click here to try again</a>`);
       } else if (nameResponse.meta.count > 0) {
           nameResponse.data.forEach(function(data) {
           $(".output").show();
-          $(".sentence").text(`A list of doctors with the name of ${name}.`);
-          if (data.practices[0].website == null) {
-            $(".outputResult").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: there is no website" + "</li>" + "</ul>" + "<br>" + "</li>");
-          } else {
-            $(".outputResult").append("<li>" + data.profile.title + ". " + data.profile.first_name + " " + data.profile.last_name + "</li>" + "<ul>" + "<li>" + "Phone Number: " + data.practices[0].phones[0].number + "</li>" + "<li>" + "Address: " + data.practices[0].visit_address.street + ", " + data.practices[0].visit_address.city + ", " + data.practices[0].visit_address.state + ", " + data.practices[0].visit_address.zip + "</li>" + "<li>" + "Accept New Patients: " + data.practices[0].accepts_new_patients + "</li>" + "<li>" + "Website: " + "<a href='" + data.practices[0].website + "'>" + data.practices[0].website + "</a>" +"</li>" + "</ul>" + "<br>" + "</li>");
-          }
+          $(".sentence").text(`A list of doctors with the name of "${name}".`);
+          $(".outputResult").append(doctorsInfo(data));
         });
         $(".refresh").append(`<a href='index.html'>Click here to try again</a>`);
       } else {

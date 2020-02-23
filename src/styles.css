@@ -1,11 +1,20 @@
-/* body {
-  background-color: #7FDBFF;
-} */
-
 .output, .noResultOutput {
   display: none;
 }
 
 .errorOutput {
   color: red;
+}
+
+.card {
+  display: inline-flex;
+  justify-content: center;
+  height: 230px;
+  width: 25em;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: rgb(156, 151, 151);
 }
